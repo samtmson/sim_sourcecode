@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='tables.css')}}">
+  <style>
+ss {
+  background-color: #6699ff;
+  width: 30px;
+  border: #6699ff;
+  padding: 5px;
+  margin: 20px;
+}
+
+</style>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<h1>Home</h1>
+</body>
+
+<h3><ss>Hi {{name}}</ss> </h3>
+<h3><ss>Balance($): {{balance}}</ss> </h3>
+<p>Your portfolio:</p>
+<table style="width:50%">
+<tr>
+  <th>Company</th>
+  <th>Tickesymbol</th>
+  <th>Totalprice of shares($)</th>
+  <th>N.0 of shares you own</th>
+  <th>Average price each share was bought for($)</th>
+  <th>Average price per share now($)</th>
+  <th>Percentage change(%)</th>
+  <th>
+</tr>
+{% for i in portfolio %}
+<tr>
+   <td>{{i.name}}</td>
+   <td>{{i.tickersymbol}}</td>
+   <td>{{i.totalprice}}</td>
+   <td>{{i.numberofshares}}</td>
+   <td>{{i.averageprice}}</td>
+   <td>{{i.price}}</td>
+   <td>{{i.change}}</td>
+</tr>
+{% endfor %}
+</table>
+      <img src="{{ image }}" />
+{% endblock %}

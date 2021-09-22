@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+        <html>
+          <head>
+
+
+
+          </head>
+            <body>
+              <ss>{% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                      {% for message in messages %}
+                      <p>{{message}}</p>
+                      {% endfor %}
+                  {% endif %}
+              {% endwith %}<ss>
+             <h1>Stock Market Simulator /login/ </h1>
+
+             <form action = "http://localhost:5000/login" method = "POST">
+                <p>username <input type = "text" name = "username" placeholder = "username"/></p>
+                <p>password <input type = "password" name = "password" placeholder = "password"/></p>
+                <p><input type = "submit" value = "submit" /></p>
+             </form>
+
+
+             <p>Click here if you have forgotten your <a href='/forgotpassword'>password</a></p>
+            </body>
+
+
+        </html>
+{% endblock %}

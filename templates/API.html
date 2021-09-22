@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<html>
+<head>
+<title>Market Simualtion API</title>
+</head>
+<body>
+<h1>Stock Market API</h1>
+<p>An API for getting stock data on these companies(Apple, Adobe, Amazon, Activision, Comcast, Costco, Ebay, Facebook, Fox, Google, Hasbro, Intel, Microsoft, Netflix, Pepsico, Paypal, Starbucks, T-Moblie, tesla)</p>
+<ul>
+  <li>Enter /company tickersymbol to get the current share price of that copmany </li>
+  <li>Enter /all to get all of the share price data for every included company</li>
+  <li>Enter /all/company tickersymbol to get all the share price data for that company</li>
+</ul>
+
+<p>(All data is returned in a JSON format including the date tickersymbol and share price  of the company)</p>
+
+</body>
+{% endblock %}

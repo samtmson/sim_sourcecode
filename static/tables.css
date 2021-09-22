@@ -1,0 +1,12 @@
+table {
+  border-collapse;
+}
+
+table th {
+  background-color: #6699ff;
+  padding: 4px 30px 4px 8px;
+}
+
+table tr:nth-child(odd) td {
+  background-color: #e7edf0;
+}

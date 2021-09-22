@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Selected Company{% endblock %}
+{% block content %}<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='tables.css')}}">
+<style>
+ss {
+  background-color: #6699ff;
+  width: 30px;
+  border: #6699ff;
+  padding: 5px;
+  margin: 20px;
+}
+
+.button {
+  background-color: #6699ff;
+  color: black;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+
+}
+</style>
+</head>
+
+
+<h1>Stock Market Simulator/Requested company</h1>
+<body>
+  <h3><ss>{{company}}</ss> </h3>
+    <div>
+        <table style="width:100%">
+        <tr>
+            <th>Ticker-Symbol</th>
+            <th>Share Price</th>
+            <th>Change(%)</th>
+            <th>Points(+,-)</th>
+            <th>Standard Deviation</th>
+        </tr>
+        <tr>
+            <td>{{tickersymbol}}</td>
+            <td>{{shareprice}}</td>
+            <td>{{change}}</td>
+            <td>{{points}}</td>
+            <td>{{SD}}</td>
+        </tr>
+        </table>
+    </div>
+    <a href="http://localhost:5000/buy" class="button">Buy</a>
+    <a href="http://localhost:5000/sell" class="button">Sell</a>
+
+      <center>  <img src="{{ image }}" /> </center>
+
+
+</body>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Search for companies{% endblock %}
+{% block content %}
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='tables.css')}}">
+
+</head>
+<body>
+
+
+<h1>Stock Market Simulator/Search for companies</h1>
+<p>select a company from the drop down list</p>
+<p>Companies (in no order)</p>
+<form action="{{ url_for('searchstock') }}" method="POST">
+  <select name="firm">
+    <option value="aapl">Apple</option>
+    <option value="adbe">Adobe</option>
+    <option value="amzn">Amazon</option>
+    <option value="atvi">Activision</option>
+    <option value="cmcsa">Comcast</option>
+    <option value="cost">CostCo</option>
+    <option value="csco">Cisco</option>
+    <option value="ebay">Ebay</option>
+    <option value="fb">Facebook</option>
+    <option value="fox">Fox</option>
+    <option value="googl">Google</option>
+    <option value="has">Hasbro</option>
+    <option value="intc">Intel</option>
+    <option value="msft">Microsoft</option>
+    <option value="nflx">Netflix</option>
+    <option value="pep">Pepsi Co</option>
+    <option value="pypl">Pay Pal</option>
+    <option value="sbux">Starbucks</option>
+    <option value="tmus">T-Mobile</option>
+    <option value="tsla">Tesla</option>
+  </select>
+  <br><br>
+  <input type="submit" value="submit">
+</form>
+
+
+
+  <center><table style="width:100%">
+  <tr>
+    <th>Company</th>
+    <th>Tickesymbol</th>
+    <th>Price($)</th>
+    <th>Change(%)</th>
+  </tr>
+  {% for company in companies %}
+  <tr>
+     <td>{{company.name}}</td>
+     <td>{{company.tickersymbol}}</td>
+     <td>{{company.price}}</td>
+     <td>{{company.change}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  </center>
+
+</body>
+</html>
+{% endblock %}

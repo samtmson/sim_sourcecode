@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<html>
+<head>
+
+
+
+</head>
+<body>
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+              <p>{{message}}</p>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+     <h1>Stock Market Simulator signup </h1>
+     <form action = "http://localhost:5000/signup" method = "POST">
+      <p>name <input type = "text" name = "name" placeholder = "name"/></p>
+      <p>username <input type = "text" name = "username" placeholder = "username"/></p>
+      <p>password <input type = "password" name = "password" placeholder = "password"/></p>
+      <p>retype password <input type = "password" name = "password2" placeholder = "password"/></p>
+      <p>enter your mothers maiden namefor if you forget you password <input type = "text" name = "question" placeholder = "mname"/></p>
+      <p>WARNING (PLEASE REMEEMBER THIS IS A HOBBY WEBSITE WITH A LOW LEVEL OF SECURITY,I SUGGEST NOT USING YOUR REAL MOTHERS MAIDEN NAME)</p>
+      <p><input type = "submit" value = "submit" /></p>
+     </form>
+</body>
+</html>
+{% endblock %}
